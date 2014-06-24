@@ -24,9 +24,9 @@
  */
 package com.oculusinfo.ml.spark;
 
-import spark.api.java.JavaPairRDD;
-import spark.api.java.JavaRDD;
-import spark.api.java.JavaSparkContext;
+import org.apache.spark.api.java.JavaPairRDD;
+import org.apache.spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaSparkContext;
 
 import com.oculusinfo.ml.DataSet;
 import com.oculusinfo.ml.Instance;
@@ -45,7 +45,7 @@ public class SparkDataSet extends DataSet {
 	public void load(String path, SparkInstanceParser parser, int minSplits) {
 		try {    
 			JavaRDD<String> lines = sc.textFile(path, minSplits); 
-			instances = lines.map( parser );
+			instances = lines.mapToPair( parser );
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -54,7 +54,7 @@ public class SparkDataSet extends DataSet {
 	public void load(String path, SparkInstanceParser parser) {		
 		try {
 			JavaRDD<String> lines = sc.textFile(path); 
-			instances = lines.map( parser );
+			instances = lines.mapToPair( parser );
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

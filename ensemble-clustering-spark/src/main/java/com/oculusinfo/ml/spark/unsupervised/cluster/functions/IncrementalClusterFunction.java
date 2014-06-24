@@ -33,9 +33,9 @@ import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterFactory;
 
 import scala.Tuple2;
-import spark.api.java.function.FlatMapFunction;
+import org.apache.spark.api.java.function.FlatMapFunction;
 
-public class IncrementalClusterFunction extends FlatMapFunction<Iterator<Tuple2<String, Instance>>, Instance> {
+public class IncrementalClusterFunction implements FlatMapFunction<Iterator<Tuple2<String, Instance>>, Instance> {
 	private static final long serialVersionUID = 5096750219795665262L;
 
 	private double threshold;

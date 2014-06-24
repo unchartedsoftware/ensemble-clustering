@@ -24,7 +24,7 @@
  */
 package com.oculusinfo.ml.spark.unsupervised.cluster.functions;
 
-import spark.api.java.function.Function2;
+import org.apache.spark.api.java.function.Function2;
 
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.centroid.Centroid;
@@ -32,7 +32,7 @@ import com.oculusinfo.ml.feature.Feature;
 import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterFactory;
 
-public class ComputeCentroidFunction extends Function2<Instance, Instance, Instance> {
+public class ComputeCentroidFunction implements Function2<Instance, Instance, Instance> {
 	private static final long serialVersionUID = -3281886552602674327L;
 	
 	private ClusterFactory clusterFactory;

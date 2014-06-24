@@ -33,7 +33,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import scala.Tuple2;
-import spark.api.java.JavaPairRDD;
+import org.apache.spark.api.java.JavaPairRDD;
 import com.oculusinfo.ml.DataSet;
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.spark.SparkDataSet;
@@ -133,7 +133,7 @@ public class KMeansClusterer extends BaseClusterer {
 			log.info("K-Means iteration {}", (iteration+1));
 			
 			// find the best kmeans for each instance
-			bestCluster = rdd.getRDD().map( new BestClusterFunction( distFunc, curKmeans ) );
+			bestCluster = rdd.getRDD().mapToPair( new BestClusterFunction( distFunc, curKmeans ) );
 			
 			// compute the new kmeans
 			kmeans = bestCluster.reduceByKey( new ComputeCentroidFunction(clusterFactory) );
@@ -171,7 +171,7 @@ public class KMeansClusterer extends BaseClusterer {
 		}		
 		
 		// training is done - assign each instance to a cluster
-		bestCluster = rdd.getRDD().map( new BestClusterFunction( distFunc, curKmeans ) );
+		bestCluster = rdd.getRDD().mapToPair( new BestClusterFunction( distFunc, curKmeans ) );
 		
 		log.info("Output results");
 		

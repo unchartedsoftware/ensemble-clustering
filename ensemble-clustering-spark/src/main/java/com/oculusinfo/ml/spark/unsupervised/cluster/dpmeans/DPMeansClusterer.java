@@ -30,8 +30,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import scala.Tuple2;
-import spark.api.java.JavaPairRDD;
-import spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaPairRDD;
+import org.apache.spark.api.java.JavaRDD;
 import com.oculusinfo.ml.DataSet;
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.spark.SparkDataSet;
@@ -128,7 +128,7 @@ public class DPMeansClusterer extends BaseClusterer {
 		
 		
 		while (iteration < maxIterations && distance > this.convergenceTest) {
-			log.info("K-Means iteration {}", (iteration+1));
+			log.info("DP-Means iteration {}", (iteration+1));
 			
 			// find the best kmeans for each instance
 			clusters = rdd.getRDD().map( new FindBestClusterFunction( distFunc, curKmeans, threshold, clusterFactory ) );
@@ -140,7 +140,7 @@ public class DPMeansClusterer extends BaseClusterer {
 			curKmeans = clusters.reduce( new AggregateClusterFunction(distFunc, threshold) );
 			
 			// assign each instance to best cluster
-			bestCluster = rdd.getRDD().map( new BestClusterFunction( distFunc, curKmeans ) );
+			bestCluster = rdd.getRDD().mapToPair( new BestClusterFunction( distFunc, curKmeans ) );
 			
 			// compute the new kmeans
 			kmeans = bestCluster.reduceByKey( new ComputeCentroidFunction(clusterFactory) );
@@ -171,14 +171,14 @@ public class DPMeansClusterer extends BaseClusterer {
 		}		
 		
 		// training is done - assign each instance to a cluster
-		bestCluster = rdd.getRDD().map( new BestClusterFunction( distFunc, curKmeans ) );
+		bestCluster = rdd.getRDD().mapToPair( new BestClusterFunction( distFunc, curKmeans ) );
 		
 		log.info("Output results");
 		
 		if (bestCluster != null && clustersPath != null) bestCluster.saveAsTextFile(clustersPath);
 		if (kmeans != null && centroidsPath != null) kmeans.saveAsTextFile(centroidsPath);
 		
-		log.info("K-Means completed with {} iterations", iteration);
+		log.info("DP-Means completed with {} iterations", iteration);
 		
 		// return the cluster membership rdd
 		return new SparkClusterResult(bestCluster);

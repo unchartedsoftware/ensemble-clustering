@@ -27,12 +27,12 @@ package com.oculusinfo.ml.spark.unsupervised.cluster.functions;
 import java.util.Map;
 
 import scala.Tuple2;
-import spark.api.java.function.Function2;
+import org.apache.spark.api.java.function.Function2;
 
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 
-public class AggregateClusterFunction extends Function2<Map<String, Instance>, Map<String, Instance>, Map<String, Instance>> {
+public class AggregateClusterFunction implements Function2<Map<String, Instance>, Map<String, Instance>, Map<String, Instance>> {
 	private static final long serialVersionUID = 3732157666163441695L;
 	
 	private double threshold;

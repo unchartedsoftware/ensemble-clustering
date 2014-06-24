@@ -28,12 +28,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import scala.Tuple2;
-import spark.api.java.function.Function;
+import org.apache.spark.api.java.function.Function;
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterFactory;
 
-public class FindBestClusterFunction extends Function<Tuple2<String, Instance>, Map<String, Instance>> {
+public class FindBestClusterFunction implements Function<Tuple2<String, Instance>, Map<String, Instance>> {
 	private static final long serialVersionUID = 1508254065822051773L;
 	
 	private double threshold = Double.MAX_VALUE;

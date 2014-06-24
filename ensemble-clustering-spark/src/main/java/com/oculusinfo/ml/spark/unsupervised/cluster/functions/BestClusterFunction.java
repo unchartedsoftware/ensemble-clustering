@@ -27,11 +27,11 @@ package com.oculusinfo.ml.spark.unsupervised.cluster.functions;
 import java.util.Map;
 
 import scala.Tuple2;
-import spark.api.java.function.PairFunction;
+import org.apache.spark.api.java.function.PairFunction;
 
 import com.oculusinfo.ml.Instance;
 
-public class BestClusterFunction extends PairFunction<Tuple2<String, Instance>, String, Instance> {
+public class BestClusterFunction implements PairFunction<Tuple2<String, Instance>, String, Instance> {
 	private static final long serialVersionUID = 1508254065822051773L;
 	
 	private double threshold = Double.MAX_VALUE;

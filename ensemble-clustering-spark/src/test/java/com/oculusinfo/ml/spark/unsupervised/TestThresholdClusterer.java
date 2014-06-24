@@ -33,6 +33,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -43,7 +44,8 @@ import java.util.Random;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
-import spark.api.java.JavaSparkContext;
+import org.apache.commons.io.FileUtils;
+import org.apache.spark.api.java.JavaSparkContext;
 
 import com.oculusinfo.ml.feature.numeric.centroid.MeanNumericVectorCentroid;
 import com.oculusinfo.ml.feature.numeric.distance.EuclideanDistance;
@@ -91,7 +93,7 @@ public class TestThresholdClusterer extends JFrame {
 	public static List<double[]> readInstances() throws Exception {
 		ArrayList<double[]> instances = new ArrayList<double[]>();
 		
-		File folder = new File("clusters.txt");
+		File folder = new File("output/clusters.txt");
 		File[] files = folder.listFiles(); 
 		  
 		int index = 0;
@@ -131,15 +133,21 @@ public class TestThresholdClusterer extends JFrame {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		int k = 5;
 
-//		genTestData(k);
+		try {
+			FileUtils.deleteDirectory( new File("output/clusters.txt") );
+			FileUtils.deleteDirectory( new File("output/centroids.txt") );
+		} catch (IOException e1) { /* ignore (*/ }	
+		
+		genTestData(k);
 		
 		JavaSparkContext sc = new JavaSparkContext("local[8]", "OculusML");  
 		SparkDataSet ds = new SparkDataSet(sc);
 		ds.load("test.txt", new InstanceParser() );
 
 		ThresholdClusterer clusterer = new ThresholdClusterer(80);
-		clusterer.setOutputPaths("centroids.txt", "clusters.txt");
+		clusterer.setOutputPaths("output/centroids.txt", "output/clusters.txt");
 		
 		clusterer.registerFeatureType("point", MeanNumericVectorCentroid.class, new EuclideanDistance(1.0));
 		

@@ -26,7 +26,7 @@ package com.oculusinfo.ml.spark.unsupervised.cluster;
 
 import java.util.Iterator;
 
-import spark.api.java.JavaPairRDD;
+import org.apache.spark.api.java.JavaPairRDD;
 
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.unsupervised.cluster.Cluster;

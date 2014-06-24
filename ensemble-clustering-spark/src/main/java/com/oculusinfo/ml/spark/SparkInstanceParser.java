@@ -25,11 +25,11 @@
 package com.oculusinfo.ml.spark;
 
 import scala.Tuple2;
-import spark.api.java.function.PairFunction;
+import org.apache.spark.api.java.function.PairFunction;
 
 import com.oculusinfo.ml.Instance;
 
-public abstract class SparkInstanceParser extends PairFunction<String, String, Instance> {
+public abstract class SparkInstanceParser implements PairFunction<String, String, Instance> {
 	private static final long serialVersionUID = -8686959633799632078L;
 
 	@Override

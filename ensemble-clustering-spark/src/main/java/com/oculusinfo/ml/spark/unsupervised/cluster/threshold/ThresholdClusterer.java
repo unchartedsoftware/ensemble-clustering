@@ -31,8 +31,8 @@ import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import spark.api.java.JavaPairRDD;
-import spark.api.java.JavaRDD;
+import org.apache.spark.api.java.JavaPairRDD;
+import org.apache.spark.api.java.JavaRDD;
 import com.oculusinfo.ml.DataSet;
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.spark.SparkDataSet;
@@ -133,7 +133,7 @@ public class ThresholdClusterer extends BaseClusterer {
 		log.info("Merging clusters completed with {} clusters", clusters.size());
 		
 		// find the best cluster for each instance
-		JavaPairRDD<String, Instance> bestCluster = instances.map( new BestClusterFunction(distFunc, clusters) );
+		JavaPairRDD<String, Instance> bestCluster = instances.mapToPair( new BestClusterFunction(distFunc, clusters) );
 		
 		log.info("Output results");
 		
