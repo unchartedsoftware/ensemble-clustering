@@ -47,8 +47,8 @@
 			<artifactId>maven-javadoc-plugin</artifactId>
 			<version>2.9</version>
 			<configuration>
-				<doctitle>Ensemble Clustering Library API</doctitle>
-				<windowtitle>Ensemble Clustering Library</windowtitle>
+				<doctitle>Spark Ensemble Clustering Library API</doctitle>
+				<windowtitle>Spark Ensemble Clustering Library</windowtitle>
 				<stylesheetfile>${basedir}/docstyle.css</stylesheetfile>
 			</configuration>
 			<executions>
