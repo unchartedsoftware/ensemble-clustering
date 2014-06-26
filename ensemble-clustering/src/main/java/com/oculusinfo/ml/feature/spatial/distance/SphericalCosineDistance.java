@@ -27,6 +27,11 @@ package com.oculusinfo.ml.feature.spatial.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.spatial.GeoSpatialFeature;
 
+/***
+ * A distance function that computes the Spherical Cosine distance between two GeoSpatialFeatures
+ * @author slangevin
+ *
+ */
 public class SphericalCosineDistance extends DistanceFunction<GeoSpatialFeature> {
 	private static final long serialVersionUID = -4202417997475962513L;
 	private final static double EARTH_RADIUS = 6371.00; // Radius in Kilometers default

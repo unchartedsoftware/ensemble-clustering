@@ -29,6 +29,17 @@ import java.util.Date;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.temporal.TemporalFeature;
 
+/***
+ * A distance function that computes the distance between two TemporalFeatures
+ * 
+ * The distance calculation first computes the overlapping interval between the two TemporalFeatures 
+ * and computes the distance as: 
+ * 
+ * 1 - 2 * overlap duration in ms / ( duration of feature1 in ms + duration of featur2 in ms)  
+ * 
+ * @author slangevin
+ *
+ */
 public class TemporalDistance extends DistanceFunction<TemporalFeature> {
 	private static final long serialVersionUID = 1910227375920657644L;
 	private final static double MS_PER_DAY = 86400000;

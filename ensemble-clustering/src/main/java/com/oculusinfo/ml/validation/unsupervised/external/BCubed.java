@@ -29,6 +29,12 @@ import java.util.Collection;
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 
+/***
+ * External clustering validation implementation of BCubed
+ * 
+ * @author slangevin
+ *
+ */
 public class BCubed {
 	private double precision = 0, recall = 0, f = 0;
 	

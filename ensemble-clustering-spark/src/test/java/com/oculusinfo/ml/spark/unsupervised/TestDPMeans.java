@@ -93,7 +93,7 @@ public class TestDPMeans extends JFrame {
 	public static List<double[]> readInstances() throws Exception {
 		ArrayList<double[]> instances = new ArrayList<double[]>();
 		
-		File folder = new File("output/clusters.txt");
+		File folder = new File("output/clusters");
 		File[] files = folder.listFiles(); 
 		  
 		int index = 0;
@@ -136,18 +136,18 @@ public class TestDPMeans extends JFrame {
 		int k = 5;
 		
 		try {
-			FileUtils.deleteDirectory( new File("output/clusters.txt") );
-			FileUtils.deleteDirectory( new File("output/centroids.txt") );
+			FileUtils.deleteDirectory( new File("output/clusters") );
+			FileUtils.deleteDirectory( new File("output/centroids") );
 		} catch (IOException e1) { /* ignore (*/ }		
 		
 		genTestData(k);
 		
-		JavaSparkContext sc = new JavaSparkContext("local[8]", "OculusML");  
+		JavaSparkContext sc = new JavaSparkContext("local", "OculusML");  
 		SparkDataSet ds = new SparkDataSet(sc);
 		ds.load("test.txt", new InstanceParser() );
 
 		DPMeansClusterer clusterer = new DPMeansClusterer(80, 10, 0.001);
-		clusterer.setOutputPaths("output/centroids.txt", "output/clusters.txt");
+		clusterer.setOutputPaths("output/centroids", "output/clusters");
 		
 		clusterer.registerFeatureType("point", MeanNumericVectorCentroid.class, new EuclideanDistance(1.0));
 		

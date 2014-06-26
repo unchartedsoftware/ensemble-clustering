@@ -33,6 +33,14 @@ import com.oculusinfo.ml.feature.string.StringFeature;
 import com.oculusinfo.ml.stats.FeatureFrequency;
 import com.oculusinfo.ml.stats.FeatureFrequencyTable;
 
+/***
+ * A BagOfWordsFeature represents a Set of Words each of which is associated with a frequency count.
+ * 
+ * Useful for representing Document or other Text fields in a DataSet.
+ * 
+ * @author slangevin
+ *
+ */
 public class BagOfWordsFeature extends Feature {
 	private static final long serialVersionUID = 6927104885425283254L;
 	private FeatureFrequencyTable freqTable = new FeatureFrequencyTable();

@@ -31,6 +31,11 @@ import com.oculusinfo.ml.DataSet;
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 
+/***
+ * An external hierarchical clustering validation implementation of BCubed
+ * @author slangevin
+ *
+ */
 public class BCubedHierarchical {
 	private double precision = 0, recall = 0, f = 0;
 

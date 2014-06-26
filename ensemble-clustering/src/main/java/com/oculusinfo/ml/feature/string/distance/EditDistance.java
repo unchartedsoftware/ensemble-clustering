@@ -27,6 +27,12 @@ package com.oculusinfo.ml.feature.string.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.string.StringFeature;
 
+/***
+ * A distance function that computes the normalized Levenshtein (Edit) Distance between two StringFeatures
+ *  
+ * @author slangevin
+ *
+ */
 public class EditDistance extends DistanceFunction<StringFeature> {
 	private static final long serialVersionUID = -1270784860823146795L;
 

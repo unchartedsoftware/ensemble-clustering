@@ -26,6 +26,14 @@ package com.oculusinfo.ml.feature.string;
 
 import com.oculusinfo.ml.feature.Feature;
 
+/***
+ * A StringFeature represents any single string value
+ * 
+ * Useful for representing labels, names or categorical values
+ * 
+ * @author slangevin
+ *
+ */
 public class StringFeature extends Feature {
 	private static final long serialVersionUID = -2290284204885879224L;
 	private String value;

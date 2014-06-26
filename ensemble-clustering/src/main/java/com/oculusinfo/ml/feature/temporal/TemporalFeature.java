@@ -28,6 +28,14 @@ import java.util.Date;
 
 import com.oculusinfo.ml.feature.Feature;
 
+/***
+ * A TemporalFeature represents a time period with as start and end date
+ * 
+ * Useful for representing events
+ * 
+ * @author slangevin
+ *
+ */
 public class TemporalFeature extends Feature {
 	private static final long serialVersionUID = 679871263379162267L;
 	private Date start;

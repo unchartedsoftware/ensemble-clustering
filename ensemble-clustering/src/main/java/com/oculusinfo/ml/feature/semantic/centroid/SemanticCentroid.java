@@ -34,6 +34,12 @@ import com.oculusinfo.ml.feature.string.StringFeature;
 import com.oculusinfo.ml.stats.FeatureFrequency;
 import com.oculusinfo.ml.stats.FeatureFrequencyTable;
 
+/***
+ * A Centroid for SemanticFeatures that represents the centroid as the top 10 semantic features with the highest frequency
+ * 
+ * @author slangevin
+ *
+ */
 public class SemanticCentroid implements Centroid<SemanticFeature> {
 	private static final long serialVersionUID = -2797239783660367088L;
 	private String name;

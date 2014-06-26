@@ -46,10 +46,20 @@ public abstract class DistanceFunction<T> implements Serializable {
 		this(1);
 	}
 	
+	/***
+	 * Each distance function produces a distance score
+	 * 
+	 * @param weight weight is a scaling factor for the distance score
+	 */
 	public DistanceFunction(double weight) {
 		this.weight = weight;
 	}
 	
+	/**
+	 * Return the scaling factor for this distance function
+	 * 
+	 * @return weight
+	 */
 	public double getWeight() {
 		return weight;
 	}

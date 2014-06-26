@@ -238,15 +238,6 @@ public abstract class AbstractClusterer extends BaseClusterer {
 		return new DistanceResult(inst, bestCluster, bestScore);
 	}
 	
-//	private double maxDistance() {
-//		double max = 0;
-//		for (String featureName : typeDefs.keySet()) {
-//			FeatureTypeDefinition def = typeDefs.get(featureName);
-//			max += def.distFunc.getWeight();
-//		}
-//		return max;
-//	}
-	
 	/***
 	 * Protected method to initiate clustering dataset.  The public methods
 	 * doCluster() and doIncrementalCluster() invoke this method.
@@ -262,8 +253,6 @@ public abstract class AbstractClusterer extends BaseClusterer {
 		if (exec == null) init();
 		
 		LinkedHashSet<Cluster> modified = new LinkedHashSet<Cluster>();
-		
-//		maxDistance = maxDistance();
 		
 		for (Instance inst : ds) {
 			// Process in batches of blocks of 100 clusters

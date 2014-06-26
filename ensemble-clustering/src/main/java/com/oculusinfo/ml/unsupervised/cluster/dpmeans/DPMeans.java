@@ -34,6 +34,17 @@ import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterResult;
 import com.oculusinfo.ml.unsupervised.cluster.kmeans.KMeans;
 
+/***
+ * The class implements the DP-Means clustering algorithm:
+ * 
+ * Kulis, B. and Jordan, M.I., Revisiting k-means: New algorithms via Bayesian nonparametrics, 2011.
+ * 
+ * This clusterer is useful when the number of clusters is unknown.  
+ * Tuning is required to choose an appropriate threshold that controls when new clusters can be created. 
+ * 
+ * @author slangevin
+ *
+ */
 public class DPMeans extends KMeans {
 	protected double threshold = 0.5; // default threshold
 	protected double convergeTest = 0.001; // default test of convergence

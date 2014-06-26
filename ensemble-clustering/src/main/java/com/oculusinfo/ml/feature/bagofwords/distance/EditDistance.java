@@ -30,6 +30,15 @@ import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.bagofwords.BagOfWordsFeature;
 import com.oculusinfo.ml.stats.FeatureFrequency;
 
+/**
+ * A distance function that computes the normalized Levenshtein (edit) distance between two BagOfWordFeatures.
+ * 
+ * The distance is computed by summing the minimum edit distance for each word in the BagOfWordFeatures 
+ * divided by the number of words
+ * 
+ * @author slangevin
+ *
+ */
 public class EditDistance extends DistanceFunction<BagOfWordsFeature> {
 	private static final long serialVersionUID = -1270784860823146795L;
 

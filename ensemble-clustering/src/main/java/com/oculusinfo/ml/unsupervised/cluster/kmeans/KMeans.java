@@ -35,6 +35,12 @@ import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterResult;
 import com.oculusinfo.ml.unsupervised.cluster.InMemoryClusterResult;
 
+/***
+ * The class implements the K-Means clustering algorithm using the K++ method for initializing the k-means
+ * 
+ * @author slangevin
+ *
+ */
 public class KMeans extends AbstractClusterer {
 	
 	protected int k;

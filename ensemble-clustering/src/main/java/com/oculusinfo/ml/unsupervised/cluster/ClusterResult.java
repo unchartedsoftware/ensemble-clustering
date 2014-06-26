@@ -27,6 +27,12 @@ package com.oculusinfo.ml.unsupervised.cluster;
 import java.io.Serializable;
 
 
+/***
+ * This interface defines the return type for doCluster() operation of a Clusterer
+ *
+ * @author slangevin
+ *
+ */
 public interface ClusterResult extends Iterable<Cluster>, Serializable {
 
 	public boolean isEmpty();

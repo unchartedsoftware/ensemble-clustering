@@ -26,6 +26,12 @@ package com.oculusinfo.ml.feature.spatial;
 
 import com.oculusinfo.ml.feature.Feature;
 
+/***
+ * A GeoSpatialFeature represents a latitude and longitude geo-spatial coordinate
+ * 
+ * @author slangevin
+ *
+ */
 public class GeoSpatialFeature extends Feature {
 	private static final long serialVersionUID = 7917681828048658982L;
 	private double latitude;

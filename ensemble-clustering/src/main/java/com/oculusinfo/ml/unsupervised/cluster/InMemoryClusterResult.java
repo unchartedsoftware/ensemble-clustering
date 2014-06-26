@@ -28,7 +28,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-
+/***
+ * This class represents a cluster result that stores all Clusters in memory.
+ * 
+ * @author slangevin
+ *
+ */
 public class InMemoryClusterResult implements ClusterResult {
 	private static final long serialVersionUID = -485649795889971226L;
 	

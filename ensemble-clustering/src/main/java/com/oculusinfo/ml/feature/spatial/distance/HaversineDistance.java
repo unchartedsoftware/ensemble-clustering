@@ -27,6 +27,12 @@ package com.oculusinfo.ml.feature.spatial.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.spatial.GeoSpatialFeature;
 
+/***
+ * A distance function that computes the normalized Haversine (Great Circle) distance between two GeoSpatialFeatures
+ * 
+ * @author slangevin
+ *
+ */
 public class HaversineDistance extends DistanceFunction<GeoSpatialFeature> {
 	private static final long serialVersionUID = -779446291214228343L;
 	private final static double EARTH_RADIUS = 6371.00; // Radius in Kilometers default

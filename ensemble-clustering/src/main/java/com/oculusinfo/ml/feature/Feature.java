@@ -31,8 +31,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 /***
  * Feature represents one data type of an instance in a data set.
  *
- * Each feature must have a unique name, group pair to distinguish it from others.  
- * The group allows features to be meaningfully associated into collections. 
+ * Each feature must have a unique name to distinguish it from others.  
  *  
  * @author slangevin
  *

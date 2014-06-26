@@ -77,22 +77,46 @@ public class DataSet implements Serializable, Iterable<Instance> {
 		return map.keySet();
 	}
 	
+	/***
+	 * Add an Instance to the Dataset
+	 * @param inst the Instance to add
+	 * @return whether an instance was replace with the same id
+	 */
 	public boolean add(Instance inst) {
 		return (map.put(inst.getId(), inst) != null);
 	}
 	
+	/***
+	 * Remove an instance from the Dataset
+	 * @param inst the Instance to remove
+	 * @return the removed Instance
+	 */
 	public Instance remove(Instance inst) {
 		return map.remove(inst.getId());
 	}
 
+	/***
+	 * Get an instance by Id
+	 * @param id the id of the Instance to return
+	 * @return the Instance with id or null if no Instance exists
+	 */
 	public Instance get(String id) {
 		return map.get(id);
 	}
 	
+	/***
+	 * Return the number of Instances in the DataSet
+	 * @return
+	 */
 	public int size() {
 		return map.size();
 	}
 	
+	/***
+	 * Return a DataSet with random fraction number of Instances as this DataSet
+	 * @param fraction fraction of Instances to return in the range of 0 and 1
+	 * @return resulting sample DataSet
+	 */
 	public DataSet sample(double fraction) {
 		DataSet sample = new DataSet();
 		
@@ -135,6 +159,11 @@ public class DataSet implements Serializable, Iterable<Instance> {
 		}
 	}
 	
+	/***
+	 * Randomly split this DataSet into n similarly sized DataSets.
+	 * @param n the number of folds to split the DataSet - value must be greater than 1 and not greater than the number of instances in DataSet
+	 * @return a list of n DataSets
+	 */
 	public List<DataSet> nFolds(int n) {
 		// Make sure n is valid: each fold must have at least one instance!
 		if (n > size() || n < 1) return null;
@@ -169,6 +198,13 @@ public class DataSet implements Serializable, Iterable<Instance> {
 		return folds;
 	}
 	
+	/***
+	 * Normalize the specified Feature for all Instances in this DataSet.
+	 * 
+	 * Currently only NumericVectorFeature types are supported.
+	 * 
+	 * @param featureName the name of the feature to normalize
+	 */
 	public void normalizeInstanceFeature(String featureName) {
 		List<Feature> allFeatures = new ArrayList<Feature>();
 		
@@ -232,6 +268,11 @@ public class DataSet implements Serializable, Iterable<Instance> {
 		return new DataSetIterator(map);
 	}
 
+	/***
+	 * Add a collection of Instances to the DataSet
+	 * @param c the Instances to add
+	 * @return true if an existing Instance with a matching id in the DataSet was replaced 
+	 */
 	public boolean addAll(Collection<Instance> c) {
 		boolean altered = false;
 		
@@ -241,14 +282,27 @@ public class DataSet implements Serializable, Iterable<Instance> {
 		return altered;
 	}
 
+	/***
+	 * Remove all Instances from this DataSet
+	 */
 	public void clear() {
 		map.clear();
 	}
 
-	public boolean contains(Instance i) {
-		return map.containsKey(i);
+	/***
+	 * Return true if the DataSet contains the specified Instance
+	 * @param inst the Instance to test
+	 * @return true if the Instance is a member of the DataSet
+	 */
+	public boolean contains(Instance inst) {
+		return map.containsKey(inst);
 	}
 
+	/***
+	 * Return true if the DataSet contains all the specified Instances
+	 * @param c the Instances to test
+	 * @return true if the Instances are all members of the DataSet
+	 */
 	public boolean containsAll(Collection<Instance> c) {
 		for (Instance i : c) {
 			if (map.containsKey(i.getId()) == false) return false;
@@ -256,6 +310,10 @@ public class DataSet implements Serializable, Iterable<Instance> {
 		return true;
 	}
 
+	/***
+	 * Returns true if this DataSet contains no Instances
+	 * @return true if this DataSet contains no Instances
+	 */
 	public boolean isEmpty() {
 		return map.isEmpty();
 	}

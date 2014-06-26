@@ -29,6 +29,12 @@ import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterResult;
 import com.oculusinfo.ml.unsupervised.cluster.Clusterer;
 
+/***
+ * An internal clustering validation implementation of cluster cohesion
+ * 
+ * @author slangevin
+ *
+ */
 public class Cohesion {
 	
 	public static double cohesion(Clusterer clusterer, Cluster cluster) {

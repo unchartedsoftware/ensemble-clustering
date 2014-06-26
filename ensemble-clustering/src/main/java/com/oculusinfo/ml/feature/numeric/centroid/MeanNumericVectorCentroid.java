@@ -30,6 +30,12 @@ import java.util.Collections;
 import com.oculusinfo.ml.centroid.Centroid;
 import com.oculusinfo.ml.feature.numeric.NumericVectorFeature;
 
+/***
+ * A Centroid for NumericVectorFeatures that represents the centroid as the average number of each vector component
+ * 
+ * @author slangevin
+ *
+ */
 public class MeanNumericVectorCentroid implements Centroid<NumericVectorFeature>  {
 	private static final long serialVersionUID = 8127455596937762659L;
 	private String name;

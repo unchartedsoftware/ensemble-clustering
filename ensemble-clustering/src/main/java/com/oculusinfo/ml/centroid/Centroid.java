@@ -29,10 +29,29 @@ import java.util.Collection;
 
 import com.oculusinfo.ml.feature.Feature;
 
+/***
+ * Interface that all Cluster Centroid objects must implement
+ * 
+ * @author slangevin
+ *
+ * @param <T>
+ */
 public interface Centroid<T extends Feature> extends Serializable {
 
+	/***
+	 * Add an Instance feature to this centroid. 
+	 * 
+	 * The centroid will aggregate these features and compute a centroid value that summarizes them 
+	 * 
+	 * @param feature feature to add to this centroid
+	 */
     public void add (T feature);
 
+    /***
+     * Remove an Instance feature from this centroid
+     * 
+     * @param feature
+     */
     public void remove (T feature);
 
 	public void setName(String name);

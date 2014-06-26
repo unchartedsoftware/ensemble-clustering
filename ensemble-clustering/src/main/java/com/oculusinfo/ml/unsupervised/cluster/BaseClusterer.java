@@ -50,7 +50,7 @@ public abstract class BaseClusterer implements Clusterer {
 	}
 	
 	/***
-	 * Method to register a feature type, medoid class and the distance function associated with the feature type.
+	 * Method to register a feature type, centroid class and the distance function associated with the feature type.
 	 * 
 	 * @param name is an internal name for the centroid value in each cluster 
 	 * @param centroidClass is the class that represents the central values of the instance features associated with this feature group
@@ -62,31 +62,31 @@ public abstract class BaseClusterer implements Clusterer {
 	}
 	
 	/***
-	 * Method to return the associated distance function for group name.
+	 * Method to return the associated distance function for feature name.
 	 * 
-	 * @param group is the name of the feature group
+	 * @param the name of the feature
 	 * @return the distance function
 	 */
 	@SuppressWarnings("unchecked")
-	public DistanceFunction<Feature> getDistanceFunction(String group) {
+	public DistanceFunction<Feature> getDistanceFunction(String featureName) {
 		DistanceFunction<Feature> func = null;
-		if (typeDefs.containsKey(group)) {
-			func = typeDefs.get(group).distFunc;
+		if (typeDefs.containsKey(featureName)) {
+			func = typeDefs.get(featureName).distFunc;
 		}
 		return func;
 	}
 	
 	/***
-	 * Method to return the associated centroid class for group name.
+	 * Method to return the associated centroid class for feature name.
 	 * 
-	 * @param group is the name of the feature group
+	 * @param the name of the feature
 	 * @return the centroid class
 	 */
 	@SuppressWarnings("rawtypes")
-	public Class<? extends Centroid> getCentroidClass(String group) {
+	public Class<? extends Centroid> getCentroidClass(String featureName) {
 		Class<? extends Centroid> centroidClass = null;
-		if (typeDefs.containsKey(group)) {
-			centroidClass = typeDefs.get(group).centroidClass;
+		if (typeDefs.containsKey(featureName)) {
+			centroidClass = typeDefs.get(featureName).centroidClass;
 		}
 		return centroidClass;
 	}
@@ -102,7 +102,7 @@ public abstract class BaseClusterer implements Clusterer {
 	
 	/***
 	 * Public method for creating a new cluster instance. The new cluster is associated with
-	 * the centroids for each feature group.
+	 * the centroids for each feature.
 	 * 
 	 * @return the new cluster instance
 	 */

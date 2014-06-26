@@ -27,6 +27,19 @@ package com.oculusinfo.ml.feature.semantic.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.semantic.SemanticFeature;
 
+/***
+ * A distance function that computes the distance between two SemanticFeatures
+ * 
+ * In order to use this distance function you must provide a taxonomy that describes the Semantic Class hierarchy as a tree
+ * 
+ * The distance calculation finds the lowest common ancestor between the two SemanticFeatures and computes
+ * the distance using the algorithm described in:
+ * 
+ * Wu, Z. and Palmer, M., Verbs semantics and lexical selection. In Proceedings of the 32nd annual meeting on Association for Computational Linguistics (Jun. 1994).
+ * 
+ * @author slangevin
+ *
+ */
 public class WuPalmerDistance extends DistanceFunction<SemanticFeature> {
 	private static final long serialVersionUID = 2357149443801960761L;
 	private Concept taxonomy;

@@ -47,9 +47,14 @@ import javax.swing.JFrame;
 import org.apache.commons.io.FileUtils;
 import org.apache.spark.api.java.JavaSparkContext;
 
+import scala.Tuple2;
+
+import com.oculusinfo.ml.Instance;
+import com.oculusinfo.ml.feature.numeric.NumericVectorFeature;
 import com.oculusinfo.ml.feature.numeric.centroid.MeanNumericVectorCentroid;
 import com.oculusinfo.ml.feature.numeric.distance.EuclideanDistance;
 import com.oculusinfo.ml.spark.SparkDataSet;
+import com.oculusinfo.ml.spark.SparkInstanceParser;
 import com.oculusinfo.ml.spark.unsupervised.cluster.kmeans.KMeansClusterer;
 
 public class TestKMeans extends JFrame {
@@ -69,13 +74,13 @@ public class TestKMeans extends JFrame {
 			for (int i=0; i < k; i++) {
 				Random rnd = new Random();
 		
-				double meanLat = rnd.nextDouble() * 400.0;
-				double meanLon = rnd.nextDouble() * 400.0;
+				double meanX = rnd.nextDouble() * 400.0;
+				double meanY = rnd.nextDouble() * 400.0;
 				
-				// randomly generate a dataset of lat, lon points
+				// randomly generate a dataset of x, y points
 				for (int j = 0; j < classSize; j++) {
-					double x = rnd.nextGaussian()*stdDev + meanLat;
-					double y = rnd.nextGaussian()*stdDev + meanLon;
+					double x = rnd.nextGaussian()*stdDev + meanX;
+					double y = rnd.nextGaussian()*stdDev + meanY;
 			
 					writer.println(x + "," + y);
 				}
@@ -93,7 +98,7 @@ public class TestKMeans extends JFrame {
 	public static List<double[]> readInstances() throws Exception {
 		ArrayList<double[]> instances = new ArrayList<double[]>();
 		
-		File folder = new File("output/clusters.txt");
+		File folder = new File("output/clusters");
 		File[] files = folder.listFiles(); 
 		  
 		int index = 0;
@@ -136,18 +141,36 @@ public class TestKMeans extends JFrame {
 		int k = 5;
 		
 		try {
-			FileUtils.deleteDirectory( new File("output/clusters.txt") );
-			FileUtils.deleteDirectory( new File("output/centroids.txt") );
+			FileUtils.deleteDirectory( new File("output/clusters") );
+			FileUtils.deleteDirectory( new File("output/centroids") );
 		} catch (IOException e1) { /* ignore (*/ }	
 		
 		genTestData(k);
 		
-		JavaSparkContext sc = new JavaSparkContext("local[8]", "OculusML");  
+		JavaSparkContext sc = new JavaSparkContext("local", "OculusML");  
 		SparkDataSet ds = new SparkDataSet(sc);
-		ds.load("test.txt", new InstanceParser() );
+		ds.load("test.txt", new SparkInstanceParser() {
+			private static final long serialVersionUID = 1L;
 
-		KMeansClusterer clusterer = new KMeansClusterer(k, 10, 0.001);
-		clusterer.setOutputPaths("output/centroids.txt", "output/clusters.txt");
+			@Override
+			public Tuple2<String, Instance> call(String line) throws Exception {
+				Instance inst = new Instance();
+				
+				String tokens[] = line.split(",");
+				
+				NumericVectorFeature v = new NumericVectorFeature("point");
+				
+				double x = Double.parseDouble(tokens[0]);
+				double y = Double.parseDouble(tokens[1]);
+				v.setValue( new double[] { x, y } );
+				
+				inst.addFeature(v);
+				
+				return new Tuple2<String, Instance>(inst.getId(), inst);
+			}
+		});
+
+		KMeansClusterer clusterer = new KMeansClusterer(k, 10, 0.001, "output/centroids", "output/clusters");
 		
 		clusterer.registerFeatureType("point", MeanNumericVectorCentroid.class, new EuclideanDistance(1.0));
 		

@@ -28,6 +28,12 @@ import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.bagofwords.BagOfWordsFeature;
 import com.oculusinfo.ml.stats.FeatureFrequency;
 
+/***
+ * A distance function that computes 1 - Cosine Similarity between two BagOfWordFeatures
+ * 
+ * @author slangevin
+ *
+ */
 public class CosineDistance extends DistanceFunction<BagOfWordsFeature> {
 	private static final long serialVersionUID = -635994591459075095L;
 

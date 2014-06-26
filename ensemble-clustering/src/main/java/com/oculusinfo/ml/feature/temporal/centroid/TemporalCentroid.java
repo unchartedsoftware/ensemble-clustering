@@ -31,6 +31,12 @@ import java.util.Date;
 import com.oculusinfo.ml.centroid.Centroid;
 import com.oculusinfo.ml.feature.temporal.TemporalFeature;
 
+/***
+ * A Centroid for TemporalFeatures that represents the centroid by the average start and end date 
+ * 
+ * @author slangevin
+ *
+ */
 public class TemporalCentroid implements Centroid<TemporalFeature> {
 	private static final long serialVersionUID = -8692407140201096772L;
 	private String name;

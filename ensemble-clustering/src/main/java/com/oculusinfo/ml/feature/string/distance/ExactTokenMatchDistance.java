@@ -27,6 +27,12 @@ package com.oculusinfo.ml.feature.string.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.string.StringFeature;
 
+/***
+ *  A distance function that compares two StringFeatures and returns 1 when they are equal 0 otherwise
+ * 
+ * @author slangevin
+ *
+ */
 public class ExactTokenMatchDistance extends DistanceFunction<StringFeature> {
 	private static final long serialVersionUID = -3651531184290382230L;
 

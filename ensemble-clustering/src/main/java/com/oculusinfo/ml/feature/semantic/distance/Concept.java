@@ -95,7 +95,7 @@ public class Concept implements Serializable {
 	 * 
 	 * Note: if the parameter y is the same as this Concept it will return itself
 	 * 
-	 * @param y, the concept to find a common parent with
+	 * @param c the concept to find a common parent with
 	 * @return the closest common parent Concept or null if none exists
 	 */
 	public Concept findCommonAncestor(Concept c) {

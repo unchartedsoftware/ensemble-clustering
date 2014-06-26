@@ -34,6 +34,12 @@ import java.util.Set;
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 
+/***
+ * An external clustering validation implementation of Normalized Mutual Information
+ * 
+ * @author slangevin
+ *
+ */
 public class NormMutualInformation {
 
 	private Map<String, Collection<Instance>> getEvents(Collection<Cluster> clusters) {

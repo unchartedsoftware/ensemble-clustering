@@ -34,7 +34,12 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-
+/***
+ * Serializer for Cluster object to/from JSON
+ * 
+ * @author slangevin
+ *
+ */
 public class ClusterJsonMapper {
 
     private static ObjectMapper mapper = new ObjectMapper();

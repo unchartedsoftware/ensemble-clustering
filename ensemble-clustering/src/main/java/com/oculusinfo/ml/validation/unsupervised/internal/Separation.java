@@ -28,6 +28,11 @@ import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterResult;
 import com.oculusinfo.ml.unsupervised.cluster.Clusterer;
 
+/***
+ * An internal clustering validation implementation of cluster separation
+ * @author slangevin
+ *
+ */
 public class Separation {
 	
 	public static double separation(Clusterer clusterer, Cluster c1, Cluster c2) {

@@ -46,6 +46,12 @@ import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterFactory;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterResult;
 
+/***
+ * The class implements a distributed version of the K-Means clustering algorithm.
+ * 
+ * @author slangevin
+ *
+ */
 public class KMeansClusterer extends BaseClusterer {
 	private int k;
 	private int maxIterations;

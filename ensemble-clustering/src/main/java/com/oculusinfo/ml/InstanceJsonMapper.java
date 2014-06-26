@@ -34,6 +34,12 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
+/***
+ * Serializer for Instance object to/from JSON
+ * 
+ * @author slangevin
+ *
+ */
 public class InstanceJsonMapper {
 
     private static ObjectMapper mapper = new ObjectMapper();

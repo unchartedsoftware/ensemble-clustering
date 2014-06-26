@@ -27,6 +27,12 @@ package com.oculusinfo.ml.feature.spatial.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.spatial.GeoSpatialFeature;
 
+/***
+ * A distance function that computes the equitangular distance between two GeoSpatialFeatures 
+ * 
+ * @author slangevin
+ *
+ */
 public class EquitangularDistance extends DistanceFunction<GeoSpatialFeature> {
 	private static final long serialVersionUID = -1226497733338508060L;
 	

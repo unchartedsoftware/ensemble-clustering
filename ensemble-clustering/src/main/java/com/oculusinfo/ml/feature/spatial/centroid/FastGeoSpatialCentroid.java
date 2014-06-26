@@ -30,6 +30,12 @@ import java.util.Collections;
 import com.oculusinfo.ml.centroid.Centroid;
 import com.oculusinfo.ml.feature.spatial.GeoSpatialFeature;
 
+/***
+ * A Centroid for GeoSpatialFeatures that represents the centroid using a naive average of latitude and longitude
+ *   
+ * @author slangevin
+ *
+ */
 public class FastGeoSpatialCentroid implements Centroid<GeoSpatialFeature> {
     private static final long serialVersionUID = 538283509674357135L;
 

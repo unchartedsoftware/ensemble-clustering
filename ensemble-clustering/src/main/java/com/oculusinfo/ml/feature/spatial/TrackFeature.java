@@ -27,6 +27,12 @@ package com.oculusinfo.ml.feature.spatial;
 import com.oculusinfo.geometry.geodesic.Track;
 import com.oculusinfo.ml.feature.Feature;
 
+/***
+ * A TrackFeature represents a sequence of geo-spatial latitude and longitude coordinates
+ * 
+ * @author slangevin
+ *
+ */
 public class TrackFeature extends Feature {
     private static final long serialVersionUID = -7923265691042687996L;
 

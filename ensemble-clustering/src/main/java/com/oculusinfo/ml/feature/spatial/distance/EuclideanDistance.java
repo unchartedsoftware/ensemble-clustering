@@ -27,6 +27,12 @@ package com.oculusinfo.ml.feature.spatial.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.spatial.GeoSpatialFeature;
 
+/***
+ * A distance function that computes the Euclidean distance between two GeoSpatialFeatures ignoring curvature
+ * 
+ * @author slangevin
+ *
+ */
 public class EuclideanDistance extends DistanceFunction<GeoSpatialFeature> {
 	private static final long serialVersionUID = -123522038033912391L;
 	private final static double EARTH_RADIUS = 6371.00; // Radius in Kilometers default

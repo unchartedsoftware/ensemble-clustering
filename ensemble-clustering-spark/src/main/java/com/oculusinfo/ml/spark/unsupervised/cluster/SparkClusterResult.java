@@ -32,6 +32,12 @@ import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterResult;
 
+/***
+ * This class represents a cluster result that stores cluster membership in a Spark RDD
+ * 
+ * @author slangevin
+ *
+ */
 public class SparkClusterResult implements ClusterResult {
 	private static final long serialVersionUID = -1586537333107747750L;
 	

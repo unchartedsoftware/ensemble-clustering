@@ -32,7 +32,7 @@ import com.oculusinfo.ml.centroid.Centroid;
 import com.oculusinfo.ml.feature.spatial.TrackFeature;
 
 /**
- * A class to represent the centroid of a bunch of tracks.
+ * A Centroid for TrackFeatures that represents the centroid by computing the average track
  * 
  * @author nkronenfeld
  */

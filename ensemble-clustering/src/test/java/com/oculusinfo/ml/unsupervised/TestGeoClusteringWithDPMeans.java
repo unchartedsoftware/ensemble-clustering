@@ -27,7 +27,6 @@ package com.oculusinfo.ml.unsupervised;
 import com.oculusinfo.ml.DataSet;
 import com.oculusinfo.ml.Instance;
 import com.oculusinfo.ml.feature.spatial.GeoSpatialFeature;
-import com.oculusinfo.ml.feature.spatial.centroid.FastGeoSpatialCentroid;
 import com.oculusinfo.ml.feature.spatial.centroid.GeoSpatialCentroid;
 import com.oculusinfo.ml.feature.spatial.distance.HaversineDistance;
 import com.oculusinfo.ml.unsupervised.cluster.Cluster;

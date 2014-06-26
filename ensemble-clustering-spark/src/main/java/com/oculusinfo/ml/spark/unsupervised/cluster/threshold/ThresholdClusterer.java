@@ -46,6 +46,33 @@ import com.oculusinfo.ml.unsupervised.cluster.Cluster;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterFactory;
 import com.oculusinfo.ml.unsupervised.cluster.ClusterResult;
 
+/***
+ * This class implements a distributed version of a single pass threshold clustering algorithm.
+ * 
+ * The algorithm is defined as:
+ *    set clusters = []
+ *    for each instance
+ *    	 best cluster = none
+ *    	 best score = infinity
+ *       for each cluster in clusters
+ *          if distance(instance, cluster) < threshold and < score
+ *          	best cluster = cluster
+ *          	best score = distance(instance, cluster)
+ *           
+ *       if best cluster is not none
+ * 		 	add instance to best cluster
+ *		 else
+ *			create new cluster with instance as a member
+ *          add cluster to clusters
+ *          
+ * This clusterer is useful when multiple passes over the data are undesirable or the number of clusters is unknown.
+ * Tuning is required to choose an appropriate threshold that controls when new clusters can be created. 
+ * 
+ * Note that the order that clustering is sensitive to the order data is processed. 
+ *  
+ * @author slangevin
+ *
+ */
 public class ThresholdClusterer extends BaseClusterer {
 	private double threshold;
 	private String centroidsPath = null;

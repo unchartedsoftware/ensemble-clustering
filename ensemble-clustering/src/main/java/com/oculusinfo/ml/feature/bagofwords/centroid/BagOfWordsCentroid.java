@@ -31,6 +31,12 @@ import com.oculusinfo.ml.feature.bagofwords.BagOfWordsFeature;
 import com.oculusinfo.ml.stats.FeatureFrequency;
 import com.oculusinfo.ml.stats.FeatureFrequencyTable;
 
+/***
+ * A Centroid for BagOfWordsFeatures that represents the centroid as the top 10 words with the highest frequency
+ * 
+ * @author slangevin
+ *
+ */
 public class BagOfWordsCentroid implements Centroid<BagOfWordsFeature> {
 	private static final long serialVersionUID = -5723416814427314073L;
 	private String name;

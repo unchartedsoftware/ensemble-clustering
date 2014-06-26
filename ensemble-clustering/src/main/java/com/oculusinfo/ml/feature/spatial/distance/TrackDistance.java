@@ -27,6 +27,12 @@ package com.oculusinfo.ml.feature.spatial.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.spatial.TrackFeature;
 
+/***
+ * A distance function that computes the distance between two TrackFeatures
+ * 
+ * @author slangevin
+ *
+ */
 public class TrackDistance extends DistanceFunction<TrackFeature>{
     private static final long serialVersionUID = -6853731905216910630L;
 

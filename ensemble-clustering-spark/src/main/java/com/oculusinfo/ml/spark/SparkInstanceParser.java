@@ -29,6 +29,13 @@ import org.apache.spark.api.java.function.PairFunction;
 
 import com.oculusinfo.ml.Instance;
 
+/***
+ * This abstract class defines the abstract method each SparkInstanceParser must implement to convert
+ * a line of data into an Instance that is added to a SparkDataSet
+ * 
+ * @author slangevin
+ *
+ */
 public abstract class SparkInstanceParser implements PairFunction<String, String, Instance> {
 	private static final long serialVersionUID = -8686959633799632078L;
 

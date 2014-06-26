@@ -33,6 +33,12 @@ import com.oculusinfo.ml.feature.bagofwords.BagOfWordsFeature;
 import com.oculusinfo.ml.feature.numeric.NumericVectorFeature;
 import com.oculusinfo.ml.feature.spatial.GeoSpatialFeature;
 
+/***
+ * This helper class assists with processing CSV files in SparkInstanceParsers
+ * 
+ * @author slangevin
+ *
+ */
 public class SparkInstanceParserHelper {
 	private Map<String, Field> fields = new HashMap<String, Field>();
 	

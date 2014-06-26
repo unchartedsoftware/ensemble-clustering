@@ -31,6 +31,12 @@ import java.util.Date;
 import com.oculusinfo.ml.centroid.Centroid;
 import com.oculusinfo.ml.feature.temporal.TemporalFeature;
 
+/***
+ * A Centroid for TemporalFeatures that represents the centroid by the min start and max end date
+ * 
+ * @author slangevin
+ *
+ */
 public class TemporalMinMaxCentroid implements Centroid<TemporalFeature> {
 	private static final long serialVersionUID = 845737125746792593L;
 	private String name;

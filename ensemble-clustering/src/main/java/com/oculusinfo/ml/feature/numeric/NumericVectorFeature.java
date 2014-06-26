@@ -29,6 +29,14 @@ import java.util.List;
 
 import com.oculusinfo.ml.feature.Feature;
 
+/***
+ * A NumericVectorFeature represents a vector of double precision numbers.
+ * 
+ * Useful for representing a large class of data that is numeric in nature or can be encoded as such
+ * 
+ * @author slangevin
+ *
+ */
 public class NumericVectorFeature extends Feature {
 	private static final long serialVersionUID = 4845380498652903996L;
 	private double[] vector;

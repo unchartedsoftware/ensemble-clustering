@@ -28,6 +28,13 @@ import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.bagofwords.BagOfWordsFeature;
 import com.oculusinfo.ml.stats.FeatureFrequency;
 
+/***
+ * A distance function that computes distance between two BagOfWordFeatures by 
+ * the size of the intersection of their words divided the largest set of words
+ * 
+ * @author slangevin
+ *
+ */
 public class ExactTokenMatchDistance extends DistanceFunction<BagOfWordsFeature> {
 	private static final long serialVersionUID = -3651531184290382230L;
 

@@ -27,6 +27,12 @@ package com.oculusinfo.ml.feature.numeric.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.numeric.NumericVectorFeature;
 
+/***
+ * A distance function that computes the Euclidean distance between two VectorFeatures
+ * 
+ * @author slangevin
+ *
+ */
 public class EuclideanDistance extends DistanceFunction<NumericVectorFeature>{
 	private static final long serialVersionUID = -1493313434323633636L;
 

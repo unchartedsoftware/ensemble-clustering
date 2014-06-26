@@ -38,7 +38,7 @@ import com.oculusinfo.ml.feature.bagofwords.distance.EditDistance;
 import com.oculusinfo.ml.feature.string.StringFeature;
 
 /***
- * Implementation of an approximation of the string median algorithm
+ * A Centroid for StringFeatures that represents the centroid using an approximation of the string median algorithm
  * 
  * The algorithm has two main steps: 
  * 1) a subset of nr points (reference points) from the set P is randomly selected. 

@@ -26,6 +26,19 @@ package com.oculusinfo.ml.feature.semantic;
 
 import com.oculusinfo.ml.feature.Feature;
 
+/***
+ * A SemanticFeature represents an instance of a semantic class in an Ontology
+ *  
+ * The SemanticFeature is associated with:
+ *   * An Ontology Concept class name
+ *   * A uri that uniquely identifies the instance
+ *   * A label that describes the instance
+ *   
+ * Example:  Concept = foaf:Person,  URI = http://danbri.org/ , Label = Dan Brickley
+ * 
+ * @author slangevin
+ *
+ */
 public class SemanticFeature extends Feature {
 	private static final long serialVersionUID = -6524985038597553461L;
 	private String concept;

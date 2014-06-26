@@ -38,7 +38,12 @@ import com.oculusinfo.ml.centroid.Centroid;
 import com.oculusinfo.ml.feature.Feature;
 
 /***
+ * A class that represents a cluster.  
  * 
+ * Each cluster has a set of Instances that belong to the cluster and centroids that 
+ * summarize the Features of the Instance members.  The centroids are used when computing 
+ * distances of Instances with clusters during clustering. 
+ *   
  * @author slangevin
  *
  */

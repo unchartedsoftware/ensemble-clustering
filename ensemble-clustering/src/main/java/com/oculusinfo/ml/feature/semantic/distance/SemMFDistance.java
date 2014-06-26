@@ -27,6 +27,19 @@ package com.oculusinfo.ml.feature.semantic.distance;
 import com.oculusinfo.ml.distance.DistanceFunction;
 import com.oculusinfo.ml.feature.semantic.SemanticFeature;
 
+/***
+ * A distance function that computes the distance between two SemanticFeatures
+ * 
+ * In order to use this distance function you must provide a taxonomy that describes the Semantic Class hierarchy as a tree
+ * 
+ * The distance calculation finds the lowest common ancestor between the two SemanticFeatures and computes
+ * the distance using the algorithm described in:
+ * 
+ * Oldakowski, R. and Bizer, C., SemMF: a framework for calculating semantic similarity of objects represented as RDF graphs. 4th International Semantic Web Conference (ISWC 2005).
+ * 
+ * @author slangevin
+ *
+ */
 public class SemMFDistance extends DistanceFunction<SemanticFeature> {
 	private static final long serialVersionUID = -7485093350764491674L;
 	private Concept taxonomy;
