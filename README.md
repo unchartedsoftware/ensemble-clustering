@@ -256,6 +256,6 @@ Explore the examples in the `src\main\test` folder to learn more about how to us
 
 ## <a name="docs"></a>API Documentation
 
-API Documentation can be found at: [ensemble-clustering docs]() and [ensemble-clustering-spark]()
+API Documentation can be found at: [ensemble-clustering docs](http://influent.oculusinfo.com/javadoc/ensemble-clustering/0.1/) and [ensemble-clustering-spark](http://influent.oculusinfo.com/javadoc/ensemble-clustering-spark/0.1/)
 
 It is recommended to look through the many examples in the `src/main/test` folder of the `ensemble-clustering` and `ensemble-clustering-spark` folders.

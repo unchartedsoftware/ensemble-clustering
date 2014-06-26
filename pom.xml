@@ -6,8 +6,8 @@
   <artifactId>ml</artifactId>
   <packaging>pom</packaging>
   
-  <name>Oculus Ensemble Clustering Library</name>
-  <description>Parent project for Oculus Ensemble Clustering Library</description>
+  <name>Ensemble Clustering Library</name>
+  <description>Parent project for Ensemble Clustering Library</description>
   
   <repositories>
 	<repository>
